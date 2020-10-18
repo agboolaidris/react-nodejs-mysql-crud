@@ -1,0 +1,19 @@
+.nav {
+  background: $primary;
+  color: $secondary;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    min-width: 70%;
+    list-style: none;
+    a {
+      color: $secondary;
+      text-decoration: none;
+    }
+  }
+}
