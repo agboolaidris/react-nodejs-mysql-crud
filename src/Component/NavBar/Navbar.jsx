@@ -1,4 +1,5 @@
 import React from "react";
+import { Btn } from "../CustomHook/Btn";
 
 function Navbar() {
   const showButton = () => {
@@ -41,7 +42,7 @@ function Navbar() {
         </li>
         <li>
           <a rel="stylesheet" href="">
-            <button>Sign Up</button>
+            {Btn && <button>sign</button>}
           </a>
         </li>
       </ul>
