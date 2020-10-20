@@ -1,51 +1,34 @@
-import React from "react";
-import { Btn } from "../CustomHook/Btn";
+import React, { useState } from "react";
+import Menu from "./Menu";
 
 function Navbar() {
+  const [harmburger, setharmburger] = useState(false);
+  const [menu, setmenu] = useState(true);
+
   const showButton = () => {
     if (window.innerWidth <= 700) {
-      alert("hello");
+      setharmburger(true);
+      setmenu(false);
     } else {
-      alert("noooo");
+      setharmburger(false);
+      setmenu(true);
     }
   };
 
-  window.addEventListener("resize", showButton);
+  window.addEventListener("load", showButton);
 
   return (
     <nav className="nav">
-      <div className="nav-logo">
+      <div className={harmburger ? "harmburger" : "harmburger-none"}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div className="logo">
         <h2>IRIS</h2>
       </div>
-
-      <div className="menu-icon">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <ul>
-        <li>
-          <a rel="stylesheet" href="">
-            Home
-          </a>
-        </li>
-        <li>
-          <a rel="stylesheet" href="">
-            Service
-          </a>
-        </li>
-        <li>
-          <a rel="stylesheet" href="">
-            Contact Us
-          </a>
-        </li>
-        <li>
-          <a rel="stylesheet" href="">
-            {Btn && <button>sign</button>}
-          </a>
-        </li>
-      </ul>
+      <Menu menu={menu} />
     </nav>
   );
 }

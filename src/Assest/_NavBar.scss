@@ -1,19 +1,44 @@
 .nav {
+  width: 100vw;
   background: $primary;
   color: $secondary;
   padding: 1em 2em;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 
-  ul {
+  .logo {
+  }
+
+  .harmburger {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    div {
+      width: 25px;
+      height: 2px;
+      background: white;
+    }
+  }
+
+  .harmburger-none {
+    display: none;
+  }
+
+  .menu {
+    min-width: 70vw;
     display: flex;
     justify-content: space-between;
-    min-width: 70%;
     list-style: none;
+
     a {
       color: $secondary;
       text-decoration: none;
     }
+  }
+
+  .menu-none {
+    display: none;
   }
 }
