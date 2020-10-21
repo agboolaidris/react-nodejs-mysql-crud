@@ -2,15 +2,13 @@
   width: 100vw;
   background: $primary;
   color: $secondary;
-  padding: 1em 2em;
+  padding: 1em 8em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  .logo {
-  }
-
   .harmburger {
+    z-index: 2;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;

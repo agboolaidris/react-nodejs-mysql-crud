@@ -17,9 +17,20 @@ function Navbar() {
 
   window.addEventListener("load", showButton);
 
+  const handleClick = () => {
+    if (menu) {
+      setmenu(false);
+    } else {
+      setmenu(true);
+    }
+  };
+
   return (
     <nav className="nav">
-      <div className={harmburger ? "harmburger" : "harmburger-none"}>
+      <div
+        className={harmburger ? "harmburger" : "harmburger-none"}
+        onClick={handleClick}
+      >
         <div></div>
         <div></div>
         <div></div>

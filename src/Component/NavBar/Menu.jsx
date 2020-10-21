@@ -1,27 +1,20 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Menu({ menu }) {
   return (
     <ul className={menu ? "menu" : "menu-none"}>
       <li>
-        <a rel="stylesheet" href="">
-          Home
-        </a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a rel="stylesheet" href="">
-          Service
-        </a>
+        <Link to="/about">Service</Link>
       </li>
       <li>
-        <a rel="stylesheet" href="">
-          Contact Us
-        </a>
+        <Link to="">Contact Us</Link>
       </li>
       <li>
-        <a rel="stylesheet" href="">
-          heloo
-        </a>
+        <Link to="">heloo</Link>
       </li>
     </ul>
   );
