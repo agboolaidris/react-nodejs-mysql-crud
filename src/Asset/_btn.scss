@@ -1,0 +1,14 @@
+%btn {
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.btn-signin {
+  @extend %btn;
+  background: lighten($color: $primary, $amount: 30);
+}
+
+.btn-signup {
+  @extend %btn;
+  background: $emphasize;
+}

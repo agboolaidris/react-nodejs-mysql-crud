@@ -1,17 +1,15 @@
 import React from 'react'
 import './index.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {BrowserRouter, Route} from 'react-router-dom'
-import Navbar from './Component/NavBar/Navbar'
-import Row from './Component/Main/Row'
-import About from './Component/About/About'
+import Navbar from './Component/Layout/Navbar'
 
 function App() {
     return (
         <BrowserRouter>
-          <div className='APP'>
-              <Navbar />
-             <Route exact path='/' component={Row}></Route>
-             <Route path='/about' component={About} />
+          <div className='App'>
+           <Navbar />
           </div>
         </BrowserRouter>
     )

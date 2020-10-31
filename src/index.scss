@@ -1,16 +1,8 @@
-* {
-  font-family: sans-serif;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-body {
-  margin: 0;
-  padding: 0;
+h1 {
+  font-size: 40px;
 }
 
-@import "./Assest/Global/config";
-@import "./Assest/Global/btn";
-@import "./Assest/navBar";
-@import "./Assest/main";
-@import "./Assest/Global/mobile";
+@import "./Asset/config";
+@import "./Asset/btn";
+@import "./Asset/navbar";
+@import "./Asset/mobile";
