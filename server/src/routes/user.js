@@ -10,4 +10,15 @@ Router.get("/", async (req, res) => {
   }
 });
 
+Router.post("/", async (req, res) => {
+  try {
+    const data = await db.query(
+      "INSERT TO employee (name, position, age, branch ) VALUES (?, ?, ?, ?,)"
+    );
+    res.send(data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 module.exports = Router;
