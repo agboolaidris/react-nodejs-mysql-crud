@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000;
 const db = require("./db/database");
 
 db.sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("database connected");
   })
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 //setup routes
-app.use("/api/employee", require("./routes/user"));
+app.use("/api/user", require("./routes/user"));
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
