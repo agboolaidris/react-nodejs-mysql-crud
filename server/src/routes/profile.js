@@ -9,4 +9,19 @@ Router.get("/", async (req, res) => {
   }
 });
 
+Router.post("/", async (req, res) => {
+  try {
+    const { department, branch, position } = req.body;
+    const profile = await Profile.create({
+      department,
+      branch,
+      position,
+    });
+
+    res.json(profile);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 module.exports = Router;

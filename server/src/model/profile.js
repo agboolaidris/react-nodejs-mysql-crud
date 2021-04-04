@@ -6,11 +6,11 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    status: {
+    department: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    location: {
+    branch: {
       type: Sequelize.STRING,
     },
     position: {
