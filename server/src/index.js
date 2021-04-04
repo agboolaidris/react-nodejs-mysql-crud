@@ -9,7 +9,7 @@ require("dotenv").config();
 
 //db config
 db.sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("database connected");
   })
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 //setup routes
-app.use("/api/user", require("./routes/user"));
+app.use("/api/todo", require("./routes/todo"));
 app.use("/api/profile", require("./routes/profile"));
 app.use("/api/auth", require("./routes/auth"));
 

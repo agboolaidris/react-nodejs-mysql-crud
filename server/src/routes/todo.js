@@ -4,7 +4,7 @@ const auth = require("../middleware/auth");
 
 Router.get("/", [auth], async (req, res) => {
   try {
-    const profile = await req.user.getTodo();
+    const profile = await req.user.getTodos();
     res.json(profile);
   } catch (error) {
     res.status(400).send(error.message);

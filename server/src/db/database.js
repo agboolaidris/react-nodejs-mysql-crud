@@ -16,17 +16,19 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-User = require("../model/user")(sequelize, Sequelize);
-Profile = require("../model/profile")(sequelize, Sequelize);
-Todo = require("../model/todo")(sequelize, Sequelize);
+const User = require("../model/user")(sequelize, Sequelize);
+const Profile = require("../model/profile")(sequelize, Sequelize);
+const Todo = require("../model/todo")(sequelize, Sequelize);
+const TodoList = require("../model/todoList")(sequelize, Sequelize);
 
 Profile.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
-Todo.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+Todo.belongsToMany(User, { through: TodoList });
 User.hasMany(Todo);
 User.hasOne(Profile);
 
 db.Profile = Profile;
 db.User = User;
 db.Todo = Todo;
+db.TodoList = TodoList;
 
 module.exports = db;
