@@ -1,9 +1,16 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
+const db = require("./db/database");
 
-//db
-require("./db/database");
+db.sequelize
+  .sync({ force: true })
+  .then(() => {
+    console.log("database connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //config bodyparser
 app.use(express.json());

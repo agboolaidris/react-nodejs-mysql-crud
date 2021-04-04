@@ -1,5 +1,4 @@
 const Router = require("express").Router();
-const db = require("../db/database");
 
 Router.get("/", async (req, res) => {
   try {
@@ -12,8 +11,12 @@ Router.get("/", async (req, res) => {
 
 Router.post("/", async (req, res) => {
   try {
+    console.log(req.body);
+    const { name, position, age, branch } = req.body;
+
     const data = await db.query(
-      "INSERT TO employee (name, position, age, branch ) VALUES (?, ?, ?, ?,)"
+      "INSERT INTO employee (name, position, age, branch ) VALUES (?,?,?,?)",
+      [name, position, age, branch]
     );
     res.send(data);
   } catch (error) {
