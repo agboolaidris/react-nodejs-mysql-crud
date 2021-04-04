@@ -1,8 +1,13 @@
 const express = require("express");
+const cookeParser = require("cookie-parser");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const db = require("./db/database");
 
+//environment variable
+require("dotenv").config();
+
+//db config
 db.sequelize
   .sync({ force: false })
   .then(() => {
@@ -11,6 +16,9 @@ db.sequelize
   .catch((err) => {
     console.log(err);
   });
+
+//config cookie-parser
+app.use(cookeParser());
 
 //config bodyparser
 app.use(express.json());
