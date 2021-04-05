@@ -29,7 +29,7 @@ Router.post("/login", async (req, res) => {
 
     const token = await sign(user);
 
-    res.cookie("access-token", token).json({ msg: "user login" });
+    res.cookie("access-token", token).json(user);
   } catch (error) {
     res.status(500).send(error.message);
   }

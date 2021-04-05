@@ -28,6 +28,7 @@ app.use(express.urlencoded());
 app.use("/api/todo", require("./routes/todo"));
 app.use("/api/profile", require("./routes/profile"));
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/user", require("./routes/user"));
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);

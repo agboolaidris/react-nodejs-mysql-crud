@@ -1,17 +1,18 @@
 const Router = require("express").Router();
-const User = require("../db/database").User;
+const db = require("../db/database");
+const auth = require("../middleware/auth");
 
 //findByPk
-Router.get("/:id", async (req, res) => {
+Router.get("/all", [auth], async (req, res) => {
   try {
-    const data = await User.findByPk(req.params.id);
+    const data = await db.User.findAll({ include: [db.Todo] });
     res.send(data);
   } catch (error) {
     res.status(500).send(error.message);
   }
 });
 
-Router.get("/", async (req, res) => {
+Router.get("/yyyyy", async (req, res) => {
   try {
     let data = null;
 
@@ -25,19 +26,6 @@ Router.get("/", async (req, res) => {
       data = await User.findAll({ attributes: ["name", "email"], limit: 2 });
     }
 
-    res.send(data);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
-//Create
-Router.post("/", async (req, res) => {
-  try {
-    console.log(req.body);
-    const { name, email, password } = req.body;
-
-    const data = await User.create({ name, email, password });
     res.send(data);
   } catch (error) {
     res.status(500).send(error.message);
