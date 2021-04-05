@@ -2,20 +2,20 @@ const Router = require("express").Router();
 const Todo = require("../db/database").Todo;
 const auth = require("../middleware/auth");
 
-Router.get("/", [auth], async (req, res) => {
+Router.get("/", async (req, res) => {
   try {
-    const profile = await req.user.getTodos();
+    const profile = await Todo.findAll();
     res.json(profile);
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
 
-Router.post("/", [auth], async (req, res) => {
+Router.post("/", async (req, res) => {
   try {
     const { title, description } = req.body;
 
-    const todo = await req.user.createTodo({
+    const todo = await Todo.create({
       title,
       description,
     });
